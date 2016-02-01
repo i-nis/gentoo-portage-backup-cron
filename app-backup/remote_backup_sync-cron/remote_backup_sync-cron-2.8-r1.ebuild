@@ -4,7 +4,7 @@
 
 inherit git-2
 
-DESCRIPTION="Backup for Postgresql."
+DESCRIPTION="Backup for system configuration files in /etc."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
@@ -16,7 +16,7 @@ KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
 	>=virtual/backup-cron-2.7
-	dev-db/postgresql"
+	net-misc/rsync"
 
 src_unpack() {
     git-2_src_unpack
@@ -24,16 +24,13 @@ src_unpack() {
 
 src_install() {
     dodir /etc/cron.daily
-    dosbin ${S}/usr/sbin/pg_dump.cron
+    dosbin ${S}/usr/sbin/remote_backup_sync.cron
 
-	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym /usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
+	if [ ! -h /etc/cron.*/remote_backup_sync.cron ]; then
+			dosym /usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
 		else
-			dosym /usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
+			dosym /usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
 	fi
+
 }
 
-pkg_postinst() {
-    local file="${ROOT}etc/backup-cron/backup-cron.conf"
-    einfo "Don't forget set postgres password in DB_PG_PASSWD parameter at '${file}' script."
-}
