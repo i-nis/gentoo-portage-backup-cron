@@ -32,7 +32,7 @@ Para extender su portage con los ebuilds desarrollados por este proyecto, debe c
 location = /usr/local/portage/backup-cron
 sync-depth = 1
 sync-type = git
-sync-uri = https://github.com/ingeniovirtual/gentoo-portage-backup-cron
+sync-uri = https://github.com/ingeniovirtual/gentoo-portage-backup-cron.git
 auto-sync = yes
 </pre>
 
