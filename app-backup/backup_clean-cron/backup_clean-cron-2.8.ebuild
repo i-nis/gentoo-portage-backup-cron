@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,13 +7,13 @@ inherit git-2
 DESCRIPTION="Clear utility for old backups from remote hosts."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/gentoo-portage-backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.7"
+DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.8"
 
 src_unpack() {
     git-2_src_unpack
