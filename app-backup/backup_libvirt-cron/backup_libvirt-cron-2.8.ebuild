@@ -7,7 +7,7 @@ inherit git-2
 DESCRIPTION="Backup for disk images of virtual machines managed by Libvirt."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/ingeniovirtual/gentoo-portage-backup-cron.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE=""
 LICENSE="GPL-3"
