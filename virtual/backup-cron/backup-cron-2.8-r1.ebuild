@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ inherit git-2 user
 DESCRIPTION="Config file and utilities for backup-cron scripts."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE="logcheck sync"
 LICENSE="GPL-3"
