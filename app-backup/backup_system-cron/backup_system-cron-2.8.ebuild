@@ -8,7 +8,7 @@ inherit git-2
 DESCRIPTION="Backup for all files in the system."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE="no-home no-system var-only"
 LICENSE="GPL-3"
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	>=sys-process/vixie-cron-2
-	>=virtual/backup-cron-2.7"
+	>=virtual/backup-cron-2.8"
 
 src_unpack() {
     git-2_src_unpack
