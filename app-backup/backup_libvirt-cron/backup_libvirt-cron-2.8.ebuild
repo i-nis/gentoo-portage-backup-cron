@@ -7,7 +7,7 @@ inherit git-2
 DESCRIPTION="Backup for disk images of virtual machines managed by Libvirt."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/gentoo-portage-backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE=""
 LICENSE="GPL-3"
@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
         sys-process/vixie-cron
-        >=virtual/backup-cron-2.7
-        >=app-emulation/libvirt-1.2.17"
+        >=virtual/backup-cron-2.8
+        >=app-emulation/libvirt-1.2.21"
 
 src_unpack() {
     git-2_src_unpack
