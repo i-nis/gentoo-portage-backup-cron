@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ inherit git-2
 DESCRIPTION="Backup for MySQL."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
-EGIT_REPO_URI="https://proyectos.ingeniovirtual.com.ar/backup.git"
+EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE=""
 LICENSE="GPL-3"
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
-	>=virtual/backup-cron-2.7
+	>=virtual/backup-cron-2.8
 	virtual/mysql"
 
 src_unpack() {
@@ -27,7 +27,9 @@ src_install() {
     dosbin ${S}/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-		dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+			dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+		else
+			dosym /usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
 	fi
 }
 
