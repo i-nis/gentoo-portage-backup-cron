@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit git-2 user
+inherit eutils git-2 user
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -20,6 +20,8 @@ DEPEND="sys-apps/findutils
 
 src_unpack() {
     git-2_src_unpack
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-virtio-scsi.patch"
 }
 
 pkg_setup() {
