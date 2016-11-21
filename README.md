@@ -38,5 +38,5 @@ auto-sync = yes
 
 ### Problemas con la primera sincronización del repositorio
 
-Para el caso de advertir problemas al sincronizar el repositorio por primera vez, cambie el valor _sync-depth = 1_ por _sync-depth = 0_ en el archivo _/etc/portage/repos.conf/odoo.conf_.
+Para el caso de advertir problemas al sincronizar el repositorio por primera vez, cambie el valor _sync-depth = 1_ por _sync-depth = 0_ en el archivo _/etc/portage/repos.conf/backup-cron.conf_.
 
