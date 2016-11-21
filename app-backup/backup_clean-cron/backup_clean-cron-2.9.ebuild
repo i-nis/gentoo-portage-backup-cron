@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 inherit git-2
 
@@ -13,20 +13,20 @@ IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.8"
+DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.9"
+RDEPEND="${DEPEND}"
 
 src_unpack() {
-    git-2_src_unpack
+	git-2_src_unpack
 }
 
 src_install() {
-    dodir /etc/cron.daily
-    cp -pR ${S}/etc/cron.daily/clean_*.cron ${D}/etc/cron.daily
-    fperms 700 /etc/cron.daily/clean_*.cron
+	dodir /etc/cron.daily
+	cp -pR ${S}/etc/cron.daily/clean_*.cron ${D}/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_*.cron
 }
 
 pkg_postinst() {
-    local file="${ROOT}etc/backup-cron/backup-cron.conf"
-    einfo "Do not forget to set the list of remote hosts in HOSTS parameter at '${file}' script."
+	local file="${ROOT}etc/backup-cron/backup-cron.conf"
+	einfo "Do not forget to set the list of remote hosts in HOSTS parameter at '${file}' script."
 }
-

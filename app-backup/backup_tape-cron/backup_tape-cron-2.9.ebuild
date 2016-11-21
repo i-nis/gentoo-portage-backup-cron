@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 inherit git-2
 
@@ -16,15 +16,16 @@ KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	app-arch/mt-st
 	>=sys-process/vixie-cron-4
-	>=virtual/backup-cron-2.8"
+	>=virtual/backup-cron-2.9"
+RDEPEND="${DEPEND}"
 
 src_unpack() {
-    git-2_src_unpack
+	git-2_src_unpack
 }
 
 src_install() {
-    dodir /etc/cron.daily
-    dosbin ${S}/usr/sbin/backup_tape.cron
+	dodir /etc/cron.daily
+	dosbin ${S}/usr/sbin/backup_tape.cron
 
 	if [ ! -h /etc/cron.*/backup_tape.cron ]; then
 			dosym /usr/sbin/backup_tape.cron /etc/cron.daily/backup_tape.cron

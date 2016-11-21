@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
 <pkgmetadata>
-<herd>app-backup</herd>
-  <maintainer>
+<maintainer type="person">
     <email>mggimenez@ingeniovirtual.com.ar</email>
-  </maintainer>
-  <use>
-    <flag name="logcheck">Rules for mails anomalies with app-admin/logcheck</flag>
+    <description>Primary maintainer</description>
+</maintainer>
+<longdescription>Config file and utilities for backup-cron scripts.</longdescription>
+<use>
+	<flag name="logcheck">Rules for mails anomalies with app-admin/logcheck</flag>
 	<flag name="sync">Synchronization backups on remote servers.</flag>
-  </use>
+</use>
 </pkgmetadata>
 

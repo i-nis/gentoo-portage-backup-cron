@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 inherit git-2
 
@@ -15,16 +15,17 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
-	>=virtual/backup-cron-2.8
+	>=virtual/backup-cron-2.9
 	virtual/mysql"
+RDEPEND="${DEPEND}"
 
 src_unpack() {
-    git-2_src_unpack
+	git-2_src_unpack
 }
 
 src_install() {
-    dodir /etc/cron.daily
-    dosbin ${S}/usr/sbin/mysqldump.cron
+	dodir /etc/cron.daily
+	dosbin ${S}/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
 			dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
@@ -34,6 +35,6 @@ src_install() {
 }
 
 pkg_postinst() {
-    local file="${ROOT}etc/backup-cron/backup-cron.conf"
-    einfo "Don't forget set root password in BDB_PASSWD parameter at '${file}' script."
+	local file="${ROOT}etc/backup-cron/backup-cron.conf"
+	einfo "Don't forget set root password in BDB_PASSWD parameter at '${file}' script."
 }

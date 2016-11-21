@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
 <pkgmetadata>
-  <herd>app-backup</herd>
-  <maintainer>
+<maintainer type="person">
     <email>mggimenez@ingeniovirtual.com.ar</email>
-  </maintainer>
+    <description>Primary maintainer</description>
+</maintainer>
+<longdescription>Backup for MySQL.</longdescription>
 </pkgmetadata>
 
