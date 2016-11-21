@@ -25,7 +25,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin ${S}/usr/sbin/mysqldump.cron
+	dosbin "${S}"/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
 			dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron

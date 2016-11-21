@@ -22,7 +22,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	cp -pR ${S}/etc/cron.daily/clean_*.cron ${D}/etc/cron.daily
+	cp -pR "${S}"/etc/cron.daily/clean_*.cron "${D}"/etc/cron.daily
 	fperms 700 /etc/cron.daily/clean_*.cron
 }
 

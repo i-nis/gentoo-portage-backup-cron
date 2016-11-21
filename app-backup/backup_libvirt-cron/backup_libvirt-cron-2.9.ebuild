@@ -25,7 +25,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.weekly
-	dosbin ${S}/usr/sbin/backup_libvirt.cron
+	dosbin "${S}"/usr/sbin/backup_libvirt.cron
 
 	if [ ! -h /etc/cron.*/backup_libvirt.cron ]; then
 			dosym /usr/sbin/backup_libvirt.cron /etc/cron.weekly/backup_libvirt.cron

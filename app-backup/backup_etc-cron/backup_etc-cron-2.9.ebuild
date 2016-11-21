@@ -22,7 +22,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin ${S}/usr/sbin/backup_etc.cron
+	dosbin "${S}"/usr/sbin/backup_etc.cron
 
 	if [ ! -h /etc/cron.*/backup_etc.cron ]; then
 			dosym /usr/sbin/backup_etc.cron /etc/cron.daily/backup_etc.cron

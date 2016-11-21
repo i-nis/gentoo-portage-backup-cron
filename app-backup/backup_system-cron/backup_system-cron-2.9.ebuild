@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-
 inherit git-2
 
 DESCRIPTION="Backup for all files in the system."
@@ -28,7 +27,7 @@ src_install() {
 
 	# USE conditional blocks...
 	if use no-home ; then
-		dosbin ${S}/usr/sbin/backup_{raiz,usr,var}.cron
+		dosbin "${S}"/usr/sbin/backup_{raiz,usr,var}.cron
 
 		if [ ! -h /etc/cron.*/backup_raiz.cron ]; then
 				dosym /usr/sbin/backup_raiz.cron /etc/cron.weekly/backup_raiz.cron
@@ -49,7 +48,7 @@ src_install() {
 		fi
 
 	elif use no-system ; then
-		dosbin ${S}/usr/sbin/backup_home.cron
+		dosbin "${S}"/usr/sbin/backup_home.cron
 
 		if [ ! -h /etc/cron.*/backup_home.cron ]; then
 				dosym /usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron
@@ -58,7 +57,7 @@ src_install() {
 		fi
 
 	elif use var-only ; then
-		dosbin ${S}/usr/sbin/backup_var.cron
+		dosbin "${S}"/usr/sbin/backup_var.cron
 
 		if [ ! -h /etc/cron.*/backup_var.cron ]; then
 				dosym /usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
@@ -67,7 +66,7 @@ src_install() {
 		fi
 
 	else
-		dosbin ${S}/usr/sbin/backup_{home,raiz,usr,var}.cron
+		dosbin "${S}"/usr/sbin/backup_{home,raiz,usr,var}.cron
 
 		if [ ! -h /etc/cron.*/backup_home.cron ]; then
 				dosym /usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron

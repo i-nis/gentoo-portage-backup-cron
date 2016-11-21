@@ -25,7 +25,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin ${S}/usr/sbin/pg_dump.cron
+	dosbin "${S}"/usr/sbin/pg_dump.cron
 
 	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
 			dosym /usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron

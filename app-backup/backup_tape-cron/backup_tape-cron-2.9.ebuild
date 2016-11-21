@@ -25,7 +25,7 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin ${S}/usr/sbin/backup_tape.cron
+	dosbin "${S}"/usr/sbin/backup_tape.cron
 
 	if [ ! -h /etc/cron.*/backup_tape.cron ]; then
 			dosym /usr/sbin/backup_tape.cron /etc/cron.daily/backup_tape.cron
