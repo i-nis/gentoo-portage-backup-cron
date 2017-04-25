@@ -9,6 +9,7 @@
 <longdescription>Config file and utilities for backup-cron scripts.</longdescription>
 <use>
 	<flag name="logcheck">Rules for mails anomalies with app-admin/logcheck</flag>
+	<flag name="plugins">Adds support for nagios plugins.</flag>
 	<flag name="sync">Synchronization backups on remote servers.</flag>
 </use>
 </pkgmetadata>

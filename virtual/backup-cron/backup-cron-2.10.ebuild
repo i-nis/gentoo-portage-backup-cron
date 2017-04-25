@@ -8,14 +8,19 @@ DESCRIPTION="Config file and utilities for backup-cron scripts."
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
-IUSE="logcheck sync"
+IUSE="logcheck plugins sync"
 SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="sys-apps/findutils
+	mail-client/mailx
 	sys-block/mbuffer
 	logcheck? ( app-admin/logcheck )
 	sync? ( app-backup/remote_backup_sync-cron )"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	plugins? ( || (
+		net-analyzer/monitoring-plugins
+		net-analyzer/nagios-plugins
+	) )"
 
 src_unpack() {
 	git-2_src_unpack
@@ -43,6 +48,12 @@ src_install() {
 	if use logcheck ; then
 		dodir /etc/logcheck/ignore.d.server
 		cp -pR "${S}"/etc/logcheck/ignore.d.server/backup-cron "${D}"/etc/logcheck/ignore.d.server
+	fi
+
+	if use plugins ; then
+		dodir /usr/lib/nagios/plugins
+		exeinto /usr/lib/nagios/plugins
+		doexe "${S}"/usr/lib/nagios/plugins/check_backup-cron
 	fi
 
 	einfo "Setting permissions for files in /etc/backup-cron."
