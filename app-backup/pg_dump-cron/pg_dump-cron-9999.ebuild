@@ -8,11 +8,11 @@ DESCRIPTION="Backup for Postgresql."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
-EGIT_COMMIT="v${PV}"
+EGIT_COMMIT="master"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="-amd64 -x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
 	>=virtual/backup-cron-2.9
