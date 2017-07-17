@@ -1,10 +1,10 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 inherit git-2
 
-DESCRIPTION="Backup on DAT and LTO tapes."
+DESCRIPTION="Backup sync for remote storage over SSH and rsync."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
@@ -14,9 +14,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
-	app-arch/mt-st
-	>=sys-process/vixie-cron-4
-	>=virtual/backup-cron-2.9"
+	sys-process/vixie-cron
+	>=virtual/backup-cron-2.11
+	net-misc/rsync"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -25,11 +25,12 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/backup_tape.cron
+	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
 
-	if [ ! -h /etc/cron.*/backup_tape.cron ]; then
-			dosym /usr/sbin/backup_tape.cron /etc/cron.daily/backup_tape.cron
+	if [ ! -h /etc/cron.*/remote_backup_sync.cron ]; then
+			dosym /usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
 		else
-			dosym /usr/sbin/backup_tape.cron $(ls /etc/cron.*/backup_tape.cron)
+			dosym /usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
 	fi
+
 }

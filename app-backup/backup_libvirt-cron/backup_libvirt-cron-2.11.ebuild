@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
-	>=virtual/backup-cron-2.9
+	>=virtual/backup-cron-2.11
 	>=app-emulation/libvirt-1.2.21"
 RDEPEND="${DEPEND}"
 

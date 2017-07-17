@@ -1,10 +1,10 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 inherit git-2
 
-DESCRIPTION="Backup for MySQL."
+DESCRIPTION="Backup for Postgresql."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	sys-process/vixie-cron
-	>=virtual/backup-cron-2.9
-	virtual/mysql"
+	>=virtual/backup-cron-2.11
+	dev-db/postgresql"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -25,16 +25,17 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/mysqldump.cron
+	dosbin "${S}"/usr/sbin/pg_dump.cron
 
-	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-			dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
+			dosym /usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
 		else
-			dosym /usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
+			dosym /usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
 	fi
 }
 
 pkg_postinst() {
 	local file="${ROOT}etc/backup-cron/backup-cron.conf"
-	einfo "Don't forget set root password in BDB_PASSWD parameter at '${file}' script."
+	einfo "Don't forget set postgres password in DB_PG_PASSWD parameter at '${file}' script."
+	einfo "If the backup is not generated check the BDB_PG_HOST parameter at '${file}' script."
 }

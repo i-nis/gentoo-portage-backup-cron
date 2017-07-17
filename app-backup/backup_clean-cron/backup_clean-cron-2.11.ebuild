@@ -1,10 +1,10 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 inherit git-2
 
-DESCRIPTION="Backup for Postgresql."
+DESCRIPTION="Clear utility for old backups from remote hosts."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
@@ -13,10 +13,7 @@ IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-DEPEND="app-admin/tmpwatch
-	sys-process/vixie-cron
-	>=virtual/backup-cron-2.9
-	dev-db/postgresql"
+DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.9"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -25,16 +22,11 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/pg_dump.cron
-
-	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym /usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
-		else
-			dosym /usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
-	fi
+	cp -pR "${S}"/etc/cron.daily/clean_*.cron "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_*.cron
 }
 
 pkg_postinst() {
 	local file="${ROOT}etc/backup-cron/backup-cron.conf"
-	einfo "Don't forget set postgres password in DB_PG_PASSWD parameter at '${file}' script."
+	einfo "Do not forget to set the list of remote hosts in HOSTS parameter at '${file}' script."
 }
