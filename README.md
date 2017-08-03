@@ -1,4 +1,8 @@
 # gentoo-portage-backup-cron
+
+[![Repoman Status](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron.svg?branch=master)](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron)
+
+
 Overlay del portage de Gentoo Linux para ebuilds relacionados con [Backup-cron](https://proyectos.ingeniovirtual.com.ar/projects/backup-cron).
 
 El conjunto de ebuilds que conforman este proyecto es software libre publicado bajo la Licencia Pública General de GNU, según se publica en: http://www.gnu.org/licenses/gpl-2.0.txt
