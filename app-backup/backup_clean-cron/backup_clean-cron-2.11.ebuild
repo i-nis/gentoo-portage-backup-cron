@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Clear utility for old backups from remote hosts."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -15,10 +14,6 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch sys-process/vixie-cron >=virtual/backup-cron-2.9"
 RDEPEND="${DEPEND}"
-
-src_unpack() {
-	git-2_src_unpack
-}
 
 src_install() {
 	dodir /etc/cron.daily

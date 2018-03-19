@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit eutils git-2 user
+inherit eutils git-r3 user
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
 SRC_URI=""
@@ -21,11 +20,6 @@ RDEPEND="${DEPEND}
 		net-analyzer/monitoring-plugins
 		net-analyzer/nagios-plugins
 	) )"
-
-src_unpack() {
-	git-2_src_unpack
-	cd "${S}"
-}
 
 pkg_setup() {
 	# Add backup user and group, then check perms (issue #1)

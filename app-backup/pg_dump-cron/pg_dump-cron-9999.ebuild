@@ -1,8 +1,7 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Backup for Postgresql."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -19,18 +18,14 @@ DEPEND="app-admin/tmpwatch
 	dev-db/postgresql"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-2_src_unpack
-}
-
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/pg_dump.cron
 
 	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym /usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
+			dosym usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
 		else
-			dosym /usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
+			dosym usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
 	fi
 }
 

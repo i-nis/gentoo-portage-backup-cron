@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Backup for MySQL."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -19,18 +18,14 @@ DEPEND="app-admin/tmpwatch
 	virtual/mysql"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-2_src_unpack
-}
-
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-			dosym /usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+			dosym usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
 		else
-			dosym /usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
+			dosym usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
 	fi
 }
 

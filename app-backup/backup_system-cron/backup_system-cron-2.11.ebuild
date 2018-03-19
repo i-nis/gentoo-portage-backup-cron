@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Backup for all files in the system."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -18,10 +17,6 @@ DEPEND="app-admin/tmpwatch
 	>=virtual/backup-cron-2.11"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-2_src_unpack
-}
-
 src_install() {
 	dodir /etc/cron.weekly
 
@@ -30,66 +25,66 @@ src_install() {
 		dosbin "${S}"/usr/sbin/backup_{raiz,usr,var}.cron
 
 		if [ ! -h /etc/cron.*/backup_raiz.cron ]; then
-				dosym /usr/sbin/backup_raiz.cron /etc/cron.weekly/backup_raiz.cron
+				dosym usr/sbin/backup_raiz.cron /etc/cron.weekly/backup_raiz.cron
 			else
-				dosym /usr/sbin/backup_raiz.cron $(ls /etc/cron.*/backup_raiz.cron)
+				dosym usr/sbin/backup_raiz.cron $(ls /etc/cron.*/backup_raiz.cron)
 		fi
 
 		if [ ! -h /etc/cron.*/backup_usr.cron ]; then
-				dosym /usr/sbin/backup_usr.cron /etc/cron.weekly/backup_usr.cron
+				dosym usr/sbin/backup_usr.cron /etc/cron.weekly/backup_usr.cron
 			else
-				dosym /usr/sbin/backup_usr.cron $(ls /etc/cron.*/backup_usr.cron)
+				dosym usr/sbin/backup_usr.cron $(ls /etc/cron.*/backup_usr.cron)
 		fi
 
 		if [ ! -h /etc/cron.*/backup_var.cron ]; then
-				dosym /usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
+				dosym usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
 			else
-				dosym /usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
+				dosym usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
 		fi
 
 	elif use no-system ; then
 		dosbin "${S}"/usr/sbin/backup_home.cron
 
 		if [ ! -h /etc/cron.*/backup_home.cron ]; then
-				dosym /usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron
+				dosym usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron
 			else
-				dosym /usr/sbin/backup_home.cron $(ls /etc/cron.*/backup_home.cron)
+				dosym usr/sbin/backup_home.cron $(ls /etc/cron.*/backup_home.cron)
 		fi
 
 	elif use var-only ; then
 		dosbin "${S}"/usr/sbin/backup_var.cron
 
 		if [ ! -h /etc/cron.*/backup_var.cron ]; then
-				dosym /usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
+				dosym usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
 			else
-				dosym /usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
+				dosym usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
 		fi
 
 	else
 		dosbin "${S}"/usr/sbin/backup_{home,raiz,usr,var}.cron
 
 		if [ ! -h /etc/cron.*/backup_home.cron ]; then
-				dosym /usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron
+				dosym usr/sbin/backup_home.cron /etc/cron.weekly/backup_home.cron
 			else
-				dosym /usr/sbin/backup_home.cron $(ls /etc/cron.*/backup_home.cron)
+				dosym usr/sbin/backup_home.cron $(ls /etc/cron.*/backup_home.cron)
 		fi
 
 		if [ ! -h /etc/cron.*/backup_raiz.cron ]; then
-				dosym /usr/sbin/backup_raiz.cron /etc/cron.weekly/backup_raiz.cron
+				dosym usr/sbin/backup_raiz.cron /etc/cron.weekly/backup_raiz.cron
 			else
-				dosym /usr/sbin/backup_raiz.cron $(ls /etc/cron.*/backup_raiz.cron)
+				dosym usr/sbin/backup_raiz.cron $(ls /etc/cron.*/backup_raiz.cron)
 		fi
 
 		if [ ! -h /etc/cron.*/backup_usr.cron ]; then
-				dosym /usr/sbin/backup_usr.cron /etc/cron.weekly/backup_usr.cron
+				dosym usr/sbin/backup_usr.cron /etc/cron.weekly/backup_usr.cron
 			else
-				dosym /usr/sbin/backup_usr.cron $(ls /etc/cron.*/backup_usr.cron)
+				dosym usr/sbin/backup_usr.cron $(ls /etc/cron.*/backup_usr.cron)
 		fi
 
 		if [ ! -h /etc/cron.*/backup_var.cron ]; then
-				dosym /usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
+				dosym usr/sbin/backup_var.cron /etc/cron.weekly/backup_var.cron
 			else
-				dosym /usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
+				dosym usr/sbin/backup_var.cron $(ls /etc/cron.*/backup_var.cron)
 		fi
 
 	fi

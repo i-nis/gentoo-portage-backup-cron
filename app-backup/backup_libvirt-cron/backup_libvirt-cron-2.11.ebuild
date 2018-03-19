@@ -1,8 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Backup for disk images of virtual machines managed by Libvirt."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -19,18 +18,14 @@ DEPEND="app-admin/tmpwatch
 	>=app-emulation/libvirt-1.2.21"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-2_src_unpack
-}
-
 src_install() {
 	dodir /etc/cron.weekly
 	dosbin "${S}"/usr/sbin/backup_libvirt.cron
 
 	if [ ! -h /etc/cron.*/backup_libvirt.cron ]; then
-			dosym /usr/sbin/backup_libvirt.cron /etc/cron.weekly/backup_libvirt.cron
+			dosym usr/sbin/backup_libvirt.cron /etc/cron.weekly/backup_libvirt.cron
 		else
-			dosym /usr/sbin/backup_libvirt.cron $(ls /etc/cron.*/backup_libvirt.cron)
+			dosym usr/sbin/backup_libvirt.cron $(ls /etc/cron.*/backup_libvirt.cron)
 	fi
 
 }

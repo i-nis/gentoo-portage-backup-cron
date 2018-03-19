@@ -1,8 +1,7 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Backup sync for remote storage over SSH and rsync."
 HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
@@ -19,18 +18,14 @@ DEPEND="app-admin/tmpwatch
 	net-misc/rsync"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-2_src_unpack
-}
-
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
 
 	if [ ! -h /etc/cron.*/remote_backup_sync.cron ]; then
-			dosym /usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
+			dosym usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
 		else
-			dosym /usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
+			dosym usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
 	fi
 
 }
