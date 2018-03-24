@@ -23,9 +23,9 @@ src_install() {
 	dosbin "${S}"/usr/sbin/backup_libvirt.cron
 
 	if [ ! -h /etc/cron.*/backup_libvirt.cron ]; then
-			dosym usr/sbin/backup_libvirt.cron /etc/cron.weekly/backup_libvirt.cron
+			dosym "${EROOT}"/usr/sbin/backup_libvirt.cron /etc/cron.weekly/backup_libvirt.cron
 		else
-			dosym usr/sbin/backup_libvirt.cron $(ls /etc/cron.*/backup_libvirt.cron)
+			dosym "${EROOT}"/usr/sbin/backup_libvirt.cron $(ls /etc/cron.*/backup_libvirt.cron)
 	fi
 
 }

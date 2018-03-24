@@ -20,9 +20,9 @@ src_install() {
 	dosbin "${S}"/usr/sbin/backup_etc.cron
 
 	if [ ! -h /etc/cron.*/backup_etc.cron ]; then
-			dosym usr/sbin/backup_etc.cron /etc/cron.daily/backup_etc.cron
+			dosym "${EROOT}"/usr/sbin/backup_etc.cron /etc/cron.daily/backup_etc.cron
 		else
-			dosym usr/sbin/backup_etc.cron $(ls /etc/cron.*/backup_etc.cron)
+			dosym "${EROOT}"/usr/sbin/backup_etc.cron $(ls /etc/cron.*/backup_etc.cron)
 	fi
 
 }

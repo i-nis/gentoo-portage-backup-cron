@@ -23,13 +23,13 @@ src_install() {
 	dosbin "${S}"/usr/sbin/pg_dump.cron
 
 	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
+			dosym "${EROOT}"/root/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
 		else
-			dosym usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
+			dosym "${EROOT}"/root/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
 	fi
 }
 
 pkg_postinst() {
-	local file="${ROOT}etc/backup-cron/backup-cron.conf"
+	local file="${EROOT}etc/backup-cron/backup-cron.conf"
 	einfo "Don't forget set postgres password in DB_PG_PASSWD parameter at '${file}' script."
 }

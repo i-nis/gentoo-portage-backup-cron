@@ -23,9 +23,9 @@ src_install() {
 	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
 
 	if [ ! -h /etc/cron.*/remote_backup_sync.cron ]; then
-			dosym usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
+			dosym "${EROOT}"/root/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
 		else
-			dosym usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
+			dosym "${EROOT}"/root/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
 	fi
 
 }

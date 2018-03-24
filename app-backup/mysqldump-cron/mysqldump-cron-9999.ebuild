@@ -23,13 +23,13 @@ src_install() {
 	dosbin "${S}"/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-			dosym usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+			dosym "${EROOT}"/root/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
 		else
-			dosym usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
+			dosym "${EROOT}"/root/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
 	fi
 }
 
 pkg_postinst() {
-	local file="${ROOT}etc/backup-cron/backup-cron.conf"
+	local file="${EROOT}/etc/backup-cron/backup-cron.conf"
 	einfo "Don't forget set root password in BDB_PASSWD parameter at '${file}' script."
 }
