@@ -23,9 +23,9 @@ src_install() {
 	dosbin "${S}"/usr/sbin/pg_dump.cron
 
 	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym "${EROOT}"/root/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
+			dosym "${EROOT}"/usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
 		else
-			dosym "${EROOT}"/root/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
+			dosym "${EROOT}"/usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
 	fi
 }
 

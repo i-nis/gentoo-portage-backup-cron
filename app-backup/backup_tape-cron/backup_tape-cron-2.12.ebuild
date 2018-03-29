@@ -23,8 +23,8 @@ src_install() {
 	dosbin "${S}"/usr/sbin/backup_tape.cron
 
 	if [ ! -h /etc/cron.*/backup_tape.cron ]; then
-			dosym "${EROOT}"/root/sbin/backup_tape.cron /etc/cron.daily/backup_tape.cron
+			dosym "${EROOT}"/usr/sbin/backup_tape.cron /etc/cron.daily/backup_tape.cron
 		else
-			dosym "${EROOT}"/root/sbin/backup_tape.cron $(ls /etc/cron.*/backup_tape.cron)
+			dosym "${EROOT}"/usr/sbin/backup_tape.cron $(ls /etc/cron.*/backup_tape.cron)
 	fi
 }

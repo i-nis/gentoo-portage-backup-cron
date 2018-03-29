@@ -23,9 +23,9 @@ src_install() {
 	dosbin "${S}"/usr/sbin/mysqldump.cron
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-			dosym "${EROOT}"/root/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
+			dosym "${EROOT}"/usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
 		else
-			dosym "${EROOT}"/root/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
+			dosym "${EROOT}"/usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
 	fi
 }
 
