@@ -15,8 +15,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
-	sys-process/vixie-cron
-	>=virtual/backup-cron-2.9
+	virtual/cron
+	virtual/backup-cron
 	dev-db/postgresql:*"
 RDEPEND="${DEPEND}"
 

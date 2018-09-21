@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	app-arch/mt-st
-	>=sys-process/vixie-cron-4
-	>=virtual/backup-cron-2.11"
+	virtual/cron
+	virtual/backup-cron"
 RDEPEND="${DEPEND}"
 
 src_install() {
