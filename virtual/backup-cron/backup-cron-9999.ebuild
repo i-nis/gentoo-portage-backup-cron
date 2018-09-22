@@ -13,7 +13,7 @@ IUSE="logcheck plugins sync"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="sys-apps/findutils
-	mail-client/mailx
+	net-mail/mailutils
 	sys-block/mbuffer
 	logcheck? ( app-admin/logcheck )
 	sync? ( app-backup/remote_backup_sync-cron )"
