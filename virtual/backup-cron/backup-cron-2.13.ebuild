@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit eutils git-r3 user
+inherit eutils git-r3 multilib user
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
 SRC_URI=""
@@ -49,7 +49,7 @@ src_install() {
 	if use plugins ; then
 		dodir /usr/lib/nagios/plugins
 		exeinto /usr/lib/nagios/plugins
-		doexe "${S}"/usr/lib/nagios/plugins/check_backup-cron
+		doexe "${S}"/usr/$(get_libdir)/nagios/plugins/check_backup-cron
 	fi
 
 	einfo "Setting permissions for files in /etc/backup-cron."
