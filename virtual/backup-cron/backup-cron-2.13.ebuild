@@ -47,9 +47,9 @@ src_install() {
 	fi
 
 	if use plugins ; then
-		dodir /usr/lib/nagios/plugins
-		exeinto /usr/lib/nagios/plugins
-		doexe "${S}"/usr/$(get_libdir)/nagios/plugins/check_backup-cron
+		dodir /usr/$(get_libdir)/nagios/plugins
+		exeinto /usr/$(get_libdir)/nagios/plugins
+		doexe "${S}"/usr/lib/nagios/plugins/check_backup-cron
 	fi
 
 	einfo "Setting permissions for files in /etc/backup-cron."
