@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
 EGIT_COMMIT="v${PV}"
 IUSE="logcheck plugins sync"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="sys-apps/findutils
 	net-mail/mailutils
 	sys-block/mbuffer
