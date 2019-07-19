@@ -13,7 +13,7 @@ EGIT_COMMIT="v${PV}"
 IUSE="no-home no-system var-only"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
 	virtual/backup-cron"
