@@ -15,6 +15,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
+	sys-apps/pv
 	virtual/cron
 	virtual/backup-cron
 	virtual/mysql"
@@ -23,6 +24,7 @@ RDEPEND="${DEPEND}"
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/mysqldump.cron
+	dosbin "${S}"/usr/sbin/mysql_restore
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
 			dosym "${EROOT}"/usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron

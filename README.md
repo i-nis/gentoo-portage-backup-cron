@@ -1,6 +1,6 @@
 # gentoo-portage-backup-cron
 
-[![Repoman Status](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron.svg?branch=master)](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron)
+[![Repoman Status](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron.svg?branch=master)](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron) [![License](http://img.shields.io/:license-gpl-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
 
 Overlay del portage de Gentoo Linux para ebuilds relacionados con [Backup-cron](https://proyectos.ingeniovirtual.com.ar/projects/backup-cron).
