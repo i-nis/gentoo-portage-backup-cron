@@ -1,15 +1,13 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Autors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-inherit git-r3
+inherit eutils
 
 DESCRIPTION="Backup for MySQL."
-HOMEPAGE="https://proyectos.ingeniovirtual.com.ar/projects/backup-cron"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
-EGIT_COMMIT="v${PV}"
+HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
+SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,9 +18,15 @@ DEPEND="app-admin/tmpwatch
 	virtual/mysql"
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack ${A}
+	mv "${WORKDIR}/backup-cron-${PV}" "${WORKDIR}/${P}" || die "Install failed!"
+}
+
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/mysqldump.cron
+	dosbin "${S}"/usr/sbin/mysql_restore
 
 	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
 			dosym "${EROOT}"/usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron

@@ -1,6 +1,6 @@
 # gentoo-portage-backup-cron
 
-[![Repoman Status](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron.svg?branch=master)](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron) [![License](http://img.shields.io/:license-gpl-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
+[![Repoman Status](https://travis-ci.org/i-nis/gentoo-portage-backup-cron.svg?branch=master)](https://travis-ci.org/ingeniovirtual/gentoo-portage-backup-cron) [![License](http://img.shields.io/:license-gpl-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
 
 Overlay del portage de Gentoo Linux para ebuilds relacionados con [Backup-cron](https://proyectos.ingeniovirtual.com.ar/projects/backup-cron).
@@ -13,7 +13,7 @@ Backup-cron es un sistema minimalista de generación de copias de resguardo basa
 
 ### Documentación de Backup-Cron
 
-Se encuentra accesible en la [wiki de Backup-cron](https://proyectos.ingeniovirtual.com.ar/projects/backup-cron/wiki)
+Se encuentra accesible en la [wiki de Backup-cron](https://proyectos.nis.com.ar/projects/backup-cron/wiki)
 
 ## Portage
 

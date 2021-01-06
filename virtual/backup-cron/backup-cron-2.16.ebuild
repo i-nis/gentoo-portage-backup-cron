@@ -1,18 +1,20 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
 
-inherit eutils git-r3 user
+inherit eutils multilib user
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/ingeniovirtual/backup-cron.git"
-EGIT_COMMIT="master"
+HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
+SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
 IUSE="logcheck plugins sync"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-DEPEND="sys-apps/findutils
+KEYWORDS="amd64 x86"
+DEPEND="
+	acct-group/admin
+	acct-user/admin
+	sys-apps/findutils
 	net-mail/mailutils
 	sys-block/mbuffer
 	logcheck? ( app-admin/logcheck )
@@ -22,17 +24,6 @@ RDEPEND="${DEPEND}
 		net-analyzer/monitoring-plugins
 		net-analyzer/nagios-plugins
 	) )"
-
-pkg_setup() {
-	# Add backup user and group, then check perms (issue #1)
-	einfo "Checking for admin group..."
-	enewgroup admin
-	einfo "Checking for admin user..."
-	enewuser admin -1 /bin/rbash /home/admin admin
-	einfo "Setting permissions for /home/admin directory."
-	dodir /home/admin
-	fperms 0770 /home/admin
-}
 
 src_install() {
 	dodir /etc/backup-cron
