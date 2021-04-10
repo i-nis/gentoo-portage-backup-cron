@@ -22,11 +22,5 @@ RDEPEND="${DEPEND}"
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
-
-	if [ ! -h /etc/cron.*/remote_backup_sync.cron ]; then
-			dosym "${EROOT}"/usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
-		else
-			dosym "${EROOT}"/usr/sbin/remote_backup_sync.cron $(ls /etc/cron.*/remote_backup_sync.cron)
-	fi
-
+	dosym ../../usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
 }

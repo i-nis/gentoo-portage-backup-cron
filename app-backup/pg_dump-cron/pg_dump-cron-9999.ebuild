@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Autors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -15,19 +15,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
-	>=virtual/backup-cron-2.14
+	virtual/backup-cron
 	dev-db/postgresql:*"
 RDEPEND="${DEPEND}"
 
 src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/pg_dump.cron
-
-	if [ ! -h /etc/cron.*/pg_dump.cron ]; then
-			dosym "${EROOT}"/usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
-		else
-			dosym "${EROOT}"/usr/sbin/pg_dump.cron $(ls /etc/cron.*/pg_dump.cron)
-	fi
+	dosym ../../usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
 }
 
 pkg_postinst() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Autors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
-	>=virtual/backup-cron-2.14
+	virtual/backup-cron
 	virtual/mysql"
 RDEPEND="${DEPEND}"
 
@@ -23,12 +23,7 @@ src_install() {
 	dodir /etc/cron.daily
 	dosbin "${S}"/usr/sbin/mysqldump.cron
 	dosbin "${S}"/usr/sbin/mysql_restore
-
-	if [ ! -h /etc/cron.*/mysqldump.cron ]; then
-			dosym "${EROOT}"/usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
-		else
-			dosym "${EROOT}"/usr/sbin/mysqldump.cron $(ls /etc/cron.*/mysqldump.cron)
-	fi
+	dosym ../../usr/sbin/mysqldump.cron /etc/cron.daily/mysqldump.cron
 }
 
 pkg_postinst() {

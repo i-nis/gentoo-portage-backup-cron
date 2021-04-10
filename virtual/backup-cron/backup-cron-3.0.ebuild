@@ -6,13 +6,17 @@ EAPI="7"
 inherit eutils multilib
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="
+	https://github.com/i-nis/${PN}/archive/v${PV}.zip -> backup-cron-${PV}.zip
+	https://gitlab.com/i-nis/${PN}/-/archive/v${PV}/${P}.zip -> backup-cron-${PV}.zip
+	"
 IUSE="logcheck plugins sync"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="
 	acct-group/admin
 	acct-user/admin
+	app-crypt/gnupg
 	sys-apps/findutils
 	net-mail/mailutils
 	sys-block/mbuffer
@@ -27,7 +31,7 @@ RDEPEND="${DEPEND}
 src_install() {
 	dodir /etc/backup-cron
 	dodir /usr/libexec/backup-cron
-	# dosbin "${S}"/usr/sbin/mysql_restore
+	dosbin "${S}"/usr/sbin/backup_restore
 	cp -pR "${S}"/etc/backup-cron/backup-cron.conf "${D}"/etc/backup-cron
 	cp -pR "${S}"/etc/backup-cron/exclude.txt "${D}"/etc/backup-cron
 	cp -pR "${S}"/usr/libexec/backup-cron/backup-cron_functions.sh "${D}"/usr/libexec/backup-cron/

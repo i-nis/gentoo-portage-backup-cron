@@ -5,17 +5,19 @@ EAPI="7"
 
 inherit eutils
 
-DESCRIPTION="Backup sync for remote storage over SSH and rsync."
+DESCRIPTION="Backup for system configuration files in /etc."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="
+	https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip
+	https://gitlab.com/i-nis/backup-cron/-/archive/v${PV}/backup-cron-${PV}.zip -> backup-cron-${PV}.zip
+	"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
-	virtual/backup-cron
-	net-misc/rsync"
+	>=virtual/backup-cron-3.0"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -25,6 +27,6 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
-	dosym ../../usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
+	dosbin "${S}"/usr/sbin/backup_etc.cron
+	dosym ../../usr/sbin/backup_etc.cron /etc/cron.daily/backup_etc.cron
 }

@@ -7,14 +7,17 @@ inherit eutils
 
 DESCRIPTION="Backup sync for remote storage over SSH and rsync."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="
+	https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip
+	https://gitlab.com/i-nis/backup-cron/-/archive/v${PV}/backup-cron-${PV}.zip -> backup-cron-${PV}.zip
+	"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
-	virtual/backup-cron
+	>=virtual/backup-cron-3.0
 	net-misc/rsync"
 RDEPEND="${DEPEND}"
 

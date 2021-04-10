@@ -3,10 +3,9 @@
 
 EAPI="7"
 
-inherit eutils git-r3 user
+inherit eutils git-r3
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
 IUSE="logcheck plugins sync"
@@ -15,6 +14,7 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="
 	acct-group/admin
 	acct-user/admin
+	app-crypt/gnupg
 	sys-apps/findutils
 	net-mail/mailutils
 	sys-block/mbuffer
@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 src_install() {
 	dodir /etc/backup-cron
 	dodir /usr/libexec/backup-cron
+	dosbin "${S}"/usr/sbin/backup_restore
 	cp -pR "${S}"/etc/backup-cron/backup-cron.conf "${D}"/etc/backup-cron
 	cp -pR "${S}"/etc/backup-cron/exclude.txt "${D}"/etc/backup-cron
 	cp -pR "${S}"/usr/libexec/backup-cron/backup-cron_functions.sh "${D}"/usr/libexec/backup-cron/

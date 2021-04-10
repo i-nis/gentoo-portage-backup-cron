@@ -3,20 +3,27 @@
 
 EAPI="7"
 
-inherit eutils git-r3
+inherit eutils
 
 DESCRIPTION="Backup for all files in the system."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
+SRC_URI="
+	https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip
+	https://gitlab.com/i-nis/backup-cron/-/archive/v${PV}/backup-cron-${PV}.zip -> backup-cron-${PV}.zip
+	"
 IUSE="no-home no-system usr-only var-only"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
-	virtual/backup-cron"
+	>=virtual/backup-cron-3.0"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack ${A}
+	mv "${WORKDIR}/backup-cron-${PV}" "${WORKDIR}/${P}" || die "Install failed!"
+}
 
 src_install() {
 	dodir /etc/cron.daily

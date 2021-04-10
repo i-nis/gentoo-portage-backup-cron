@@ -7,12 +7,15 @@ inherit eutils
 
 DESCRIPTION="Clear utility for old backups from remote hosts."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="
+	https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip
+	https://gitlab.com/i-nis/backup-cron/-/archive/v${PV}/backup-cron-${PV}.zip -> backup-cron-${PV}.zip
+	"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
-DEPEND="app-admin/tmpwatch virtual/cron virtual/backup-cron"
+KEYWORDS="~amd64 ~x86"
+DEPEND="app-admin/tmpwatch virtual/cron >=virtual/backup-cron-3.0"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
