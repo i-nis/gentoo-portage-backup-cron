@@ -6,10 +6,7 @@ EAPI="7"
 inherit eutils multilib
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-SRC_URI="
-	https://github.com/i-nis/${PN}/archive/v${PV}.zip -> backup-cron-${PV}.zip
-	https://gitlab.com/i-nis/${PN}/-/archive/v${PV}/${P}.zip -> backup-cron-${PV}.zip
-	"
+SRC_URI="https://github.com/i-nis/${PN}/archive/v${PV}.zip -> backup-cron-${PV}.zip"
 IUSE="logcheck plugins sync"
 SLOT="0"
 KEYWORDS="amd64 x86"

@@ -7,10 +7,7 @@ inherit eutils
 
 DESCRIPTION="Backup for all files in the system."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="
-	https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip
-	https://gitlab.com/i-nis/backup-cron/-/archive/v${PV}/backup-cron-${PV}.zip -> backup-cron-${PV}.zip
-	"
+SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
 IUSE="no-home no-system usr-only var-only"
 LICENSE="GPL-3"
 SLOT="0"
