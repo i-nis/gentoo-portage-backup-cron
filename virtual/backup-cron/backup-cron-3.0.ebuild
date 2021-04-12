@@ -12,7 +12,7 @@ SRC_URI="
 	"
 IUSE="logcheck plugins sync"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 DEPEND="
 	acct-group/admin
 	acct-user/admin
