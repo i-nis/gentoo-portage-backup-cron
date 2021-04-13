@@ -14,7 +14,6 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	>=virtual/backup-cron-3.0
-	virtual/cron
 	app-emulation/libvirt"
 RDEPEND="${DEPEND}"
 

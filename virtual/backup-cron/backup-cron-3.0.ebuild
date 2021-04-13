@@ -16,7 +16,7 @@ DEPEND="
 	app-crypt/gnupg
 	sys-apps/findutils
 	net-mail/mailutils
-	sys-block/mbuffer
+	|| ( virtual/cron sys-process/anacron )
 	logcheck? ( app-admin/logcheck )
 	sync? ( app-backup/remote_backup_sync-cron )"
 RDEPEND="${DEPEND}

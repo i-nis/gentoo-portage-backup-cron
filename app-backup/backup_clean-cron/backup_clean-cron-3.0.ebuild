@@ -12,7 +12,7 @@ IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-DEPEND="app-admin/tmpwatch virtual/cron >=virtual/backup-cron-3.0"
+DEPEND="app-admin/tmpwatch >=virtual/backup-cron-3.0"
 RDEPEND="${DEPEND}"
 
 src_unpack() {

@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 DEPEND="app-admin/tmpwatch
 	app-arch/mt-st
-	virtual/cron
+	sys-block/mbuffer
 	>=virtual/backup-cron-3.0"
 RDEPEND="${DEPEND}"
 
