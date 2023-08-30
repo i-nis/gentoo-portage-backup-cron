@@ -1,9 +1,8 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
-inherit eutils
 
 DESCRIPTION="Backup for system configuration files in /etc."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
