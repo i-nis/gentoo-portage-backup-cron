@@ -3,9 +3,8 @@
 
 EAPI=8
 
-
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-SRC_URI="https://github.com/i-nis/${PN}/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="https://github.com/i-nis/${PN}/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
 IUSE="logcheck plugins sync"
 SLOT="0"
 KEYWORDS="amd64 x86"
@@ -38,7 +37,6 @@ src_install() {
 	fi
 
 	if use plugins ; then
-		dodir /usr/$(get_libdir)/nagios/plugins
 		exeinto /usr/$(get_libdir)/nagios/plugins
 		doexe "${S}"/usr/lib/nagios/plugins/check_backup-cron
 	fi

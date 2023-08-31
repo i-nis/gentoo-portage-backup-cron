@@ -3,16 +3,19 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Backup for Postgresql."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
+else
+	KEYWORDS="~amd64 ~x86"
+fi
+
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
 	virtual/backup-cron

@@ -3,16 +3,19 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Clear utility for old backups from remote hosts."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
+else
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DEPEND="app-admin/tmpwatch virtual/cron virtual/backup-cron"
 RDEPEND="${DEPEND}"
 
@@ -23,6 +26,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	local file="${ROOT}etc/backup-cron/backup-cron.conf"
+	local file="${ROOT}/etc/backup-cron/backup-cron.conf"
 	einfo "Do not forget to set the list of remote hosts in HOSTS parameter at '${file}' script."
 }

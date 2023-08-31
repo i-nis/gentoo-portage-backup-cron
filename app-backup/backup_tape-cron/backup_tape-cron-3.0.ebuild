@@ -3,10 +3,9 @@
 
 EAPI=8
 
-
 DESCRIPTION="Backup on DAT and LTO tapes."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.zip -> backup-cron-${PV}.zip"
+SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
 IUSE=""
 LICENSE="GPL-3"
 SLOT="0"

@@ -3,10 +3,17 @@
 
 <pkgmetadata>
 <maintainer type="person">
-	<email>mggimenez@ingeniovirtual.com.ar</email>
+	<email>mggimenez@nis.com.ar</email>
 	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>Config file and utilities for backup-cron scripts.</longdescription>
+<upstream>
+	<remote-id type="github">i-nis/backup-cron</remote-id>
+</upstream>
+<longdescription>
+	Backup-cron is a minimalist backup generation system based on GNU tools and the use of 
+	the Cron scheduler. This package contains configuration files and utilities for the 
+	backup-cron scripts.
+</longdescription>
 	<use>
 		<flag name="logcheck">Rules for mails anomalies with app-admin/logcheck</flag>
 		<flag name="plugins">Adds support for nagios plugins.</flag>

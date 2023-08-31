@@ -3,14 +3,17 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
 IUSE="logcheck plugins sync"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
+else
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DEPEND="
 	acct-group/admin
 	acct-user/admin
@@ -40,7 +43,6 @@ src_install() {
 	fi
 
 	if use plugins ; then
-		dodir /usr/$(get_libdir)/nagios/plugins
 		exeinto /usr/$(get_libdir)/nagios/plugins
 		doexe "${S}"/usr/lib/nagios/plugins/check_backup-cron
 	fi

@@ -3,9 +3,15 @@
 
 <pkgmetadata>
 <maintainer type="person">
-    <email>mggimenez@ingeniovirtual.com.ar</email>
-    <description>Primary maintainer</description>
+	<email>mggimenez@nis.com.ar</email>
+	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>Backup for Postgresql.</longdescription>
+<upstream>
+	<remote-id type="github">i-nis/backup-cron</remote-id>
+</upstream>
+<longdescription>
+	Backup-cron is a minimalist backup generation system based on GNU tools and the use of
+	the Cron scheduler. This package contains tools for backing up Postgresql databases.
+</longdescription>
 </pkgmetadata>
 

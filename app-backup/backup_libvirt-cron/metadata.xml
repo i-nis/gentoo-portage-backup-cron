@@ -3,9 +3,16 @@
 
 <pkgmetadata>
 <maintainer type="person">
-    <email>mggimenez@ingeniovirtual.com.ar</email>
-    <description>Primary maintainer</description>
+	<email>mggimenez@nis.com.ar</email>
+	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>Backup for disk images of virtual machines managed by Libvirt.</longdescription>
+<upstream>
+	<remote-id type="github">i-nis/backup-cron</remote-id>
+</upstream>
+<longdescription>
+	Backup-cron is a minimalist backup generation system based on GNU tools and the use of 
+	the Cron scheduler. This package contains configuration files and utilities for the 
+	backup disk images of virtual machines managed by Libvirt.
+</longdescription>
 </pkgmetadata>
 

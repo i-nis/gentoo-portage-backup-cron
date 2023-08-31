@@ -6,7 +6,14 @@
 	<email>mggimenez@ingeniovirtual.com.ar</email>
 	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>Clear utility for old backups from remote hosts.</longdescription>
+<upstream>
+	<remote-id type="github">i-nis/backup-cron</remote-id>
+</upstream>
+<longdescription>
+	Backup-cron is a minimalist backup generation system based on GNU tools and the use of 
+	the Cron scheduler. This package contains configuration files and utilities for  
+	clear old backups from remote hosts.
+</longdescription>
 <use>
 	<flag name="no-home">Not install the backup_home.cron script to back up /home directory.</flag>
 	<flag name="no-system">Not install the scripts to back up the root directory, /usr and /var.</flag>
