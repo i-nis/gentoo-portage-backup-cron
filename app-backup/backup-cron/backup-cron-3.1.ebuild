@@ -8,7 +8,7 @@ HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
 SRC_URI="https://github.com/i-nis/${PN}/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="logcheck plugins sync"
 DEPEND="
 	acct-group/admin
