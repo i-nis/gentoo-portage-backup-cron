@@ -1,11 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Backup for disk images of virtual machines managed by Libvirt."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -17,7 +16,7 @@ else
 fi
 
 DEPEND="app-admin/tmpwatch
-	virtual/backup-cron
+	app-backup/backup-cron
 	virtual/cron
 	app-emulation/libvirt"
 RDEPEND="${DEPEND}"

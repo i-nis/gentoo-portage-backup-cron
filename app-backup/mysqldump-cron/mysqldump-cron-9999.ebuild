@@ -1,11 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Backup for MySQL."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -17,8 +16,8 @@ else
 fi
 
 DEPEND="app-admin/tmpwatch
+	app-backup/backup-cron
 	virtual/cron
-	virtual/backup-cron
 	virtual/mysql"
 RDEPEND="${DEPEND}"
 

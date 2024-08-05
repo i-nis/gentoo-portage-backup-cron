@@ -1,26 +1,27 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Config file and utilities for backup-cron scripts."
-IUSE="logcheck plugins sync"
+HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
+SRC_URI="https://github.com/i-nis/${PN}/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
+LICENSE="GPL-3"
 SLOT="0"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/i-nis/backup-cron.git"
-else
-	KEYWORDS="~amd64 ~x86"
-fi
-
+KEYWORDS="~amd64 ~x86"
+IUSE="logcheck plugins sync"
 DEPEND="
 	acct-group/admin
 	acct-user/admin
+	app-alternatives/awk
+	app-alternatives/bzip2
+	app-alternatives/tar
 	app-crypt/gnupg
+	app-admin/eselect
+	net-misc/rsync
 	sys-apps/findutils
 	net-mail/mailutils
-	sys-block/mbuffer
+	|| ( virtual/cron sys-process/anacron )
 	logcheck? ( app-admin/logcheck )
 	sync? ( app-backup/remote_backup_sync-cron )"
 RDEPEND="${DEPEND}
@@ -32,10 +33,12 @@ RDEPEND="${DEPEND}
 src_install() {
 	dodir /etc/backup-cron
 	dodir /usr/libexec/backup-cron
+	dodir /usr/share/eselect/modules
 	dosbin "${S}"/usr/sbin/backup_restore
 	cp -pR "${S}"/etc/backup-cron/backup-cron.conf "${D}"/etc/backup-cron
 	cp -pR "${S}"/etc/backup-cron/exclude.txt "${D}"/etc/backup-cron
 	cp -pR "${S}"/usr/libexec/backup-cron/backup-cron_functions.sh "${D}"/usr/libexec/backup-cron/
+	cp -pR "${S}"/usr/share/eselect/modules/backup-cron.eselect "${D}"/usr/share/eselect/modules/
 
 	if use logcheck ; then
 		dodir /etc/logcheck/ignore.d.server

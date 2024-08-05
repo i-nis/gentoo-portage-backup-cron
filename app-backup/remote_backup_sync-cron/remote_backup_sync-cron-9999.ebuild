@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,12 +13,11 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-IUSE=""
 LICENSE="GPL-3"
 SLOT="0"
 DEPEND="app-admin/tmpwatch
+	app-backup/backup-cron
 	virtual/cron
-	virtual/backup-cron
 	net-misc/rsync"
 RDEPEND="${DEPEND}"
 
