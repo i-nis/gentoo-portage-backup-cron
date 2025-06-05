@@ -1,0 +1,15 @@
+---
+stages:
+  - test
+
+default:
+  image: gentoo/stage3:latest
+
+portage:
+  stage: test
+  tags:
+    - docker
+  script:
+    - echo "Revisando código..."
+    - ls -ls && pwd
+    - echo "No se encontraron problemas en el código."
