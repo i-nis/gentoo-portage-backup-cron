@@ -4,12 +4,16 @@ stages:
 
 default:
   image: gentoo/stage3:latest
+  services:
+    - gentoo/portage:latest
+  before_script:
+    - emerge dev-util/pkgcheck
 
 portage:
   stage: test
   tags:
-    - docker
+    - portage
   script:
-    - echo "Revisando código..."
+    - echo "Revisando ebuilds..."
     - pkgcheck scan
-    - echo "No se encontraron problemas en el código."
+    - echo "No se encontraron problemas en ebuilds."
