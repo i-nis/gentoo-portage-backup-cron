@@ -4,8 +4,6 @@ stages:
 
 default:
   image: gentoo/stage3:latest
-  services:
-    - gentoo/portage:latest
   before_script:
     - emerge dev-util/pkgcheck
 
