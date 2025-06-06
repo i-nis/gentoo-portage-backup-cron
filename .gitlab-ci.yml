@@ -5,9 +5,9 @@ stages:
 default:
   image: gentoo/stage3:latest
   before_script:
-    - emerge dev-util/pkgcheck
+    - emerge --quiet dev-util/pkgcheck
 
-portage:
+pkgcheck:
   stage: test
   tags:
     - portage
