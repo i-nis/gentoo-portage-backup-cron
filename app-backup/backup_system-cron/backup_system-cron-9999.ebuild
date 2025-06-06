@@ -7,7 +7,6 @@ DESCRIPTION="Backup for all files in the system."
 HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="no-home no-system usr-only var-only"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -16,6 +15,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
+IUSE="no-home no-system usr-only var-only"
 DEPEND="app-admin/tmpwatch
 	virtual/cron
 	app-backup/backup-cron"
