@@ -11,5 +11,5 @@ portage:
     - docker
   script:
     - echo "Revisando código..."
-    - ls -ls && pwd
+    - pkgcheck scan
     - echo "No se encontraron problemas en el código."
