@@ -2,15 +2,13 @@
 stages:
   - test
 
-default:
-  image: gentoo/stage3:latest
-  before_script:
-    - emerge --quiet dev-util/pkgcheck
-
 pkgcheck:
   stage: test
   tags:
     - portage
+  image: gentoo/stage3:latest
+  before_script:
+    - emerge --quiet dev-util/pkgcheck
   script:
     - echo "Revisando ebuilds..."
     - pkgcheck scan
