@@ -4,7 +4,7 @@
 [![pipeline status](https://gitlab.nis.com.ar/proyectos/gentoo-portage-backup-cron/badges/master/pipeline.svg)](https://gitlab.nis.com.ar/proyectos/gentoo-portage-backup-cron/-/commits/master)
 
 
-Overlay del portage de Gentoo Linux para ebuilds relacionados con [Backup-cron](https://proyectos.ingeniovirtual.com.ar/projects/backup-cron).
+Overlay del portage de Gentoo Linux para ebuilds relacionados con [Backup-cron](https://gitlab.nis.com.ar/proyectos/gentoo-portage-backup-cron).
 
 El conjunto de ebuilds que conforman este proyecto es software libre publicado 
 bajo la Licencia Pública General de GNU Versión 2 o posterior, según se publica 
