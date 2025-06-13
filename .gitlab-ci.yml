@@ -1,6 +1,7 @@
 ---
 stages:
   - test
+  - deploy
 
 pkgcheck:
   stage: test
@@ -13,3 +14,16 @@ pkgcheck:
     - echo "Revisando ebuilds..."
     - pkgcheck scan
     - echo "No se encontraron problemas en ebuilds."
+
+push_to_master:
+  stage: deploy
+  tags:
+    - docker
+  image: alpine/git:latest
+  script:
+    - git checkout master
+    - git merge develop
+    - git push $CI_REPOSITORY_URL
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+
