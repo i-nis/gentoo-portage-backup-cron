@@ -19,11 +19,13 @@ push_to_master:
   stage: deploy
   tags:
     - docker
-  image: bitnami/git:latest
+  image: alpine:latest
   script:
-    - git checkout master
-    - git merge develop
-    - git push $CI_REPOSITORY_URL
+    - apk add --no-cache git
+    - git status
+    #- git checkout master
+    #- git merge develop
+    #- git push $CI_REPOSITORY_URL
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
