@@ -22,10 +22,12 @@ push_to_master:
   image: alpine:latest
   script:
     - apk add --no-cache git
+    - git fetch --all
     - git status
     #- git checkout master
     #- git merge develop
     #- git push $CI_REPOSITORY_URL
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
-
+  variables:
+    GIT_STRATEGY: none
