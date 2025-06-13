@@ -27,6 +27,6 @@ push_to_master:
     - apk add --no-cache git
     - git status
     - git merge origin/develop
-    - git push "$CI_REPOSITORY_URL"
+    - git push https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.nis.com.ar/proyectos/gentoo-portage-backup-cron.git
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
