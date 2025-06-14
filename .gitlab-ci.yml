@@ -28,6 +28,6 @@ push_to_master:
   script:
     - git remote set-url origin https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
     - git merge origin/develop
-    - git push
+    - git push --set-upstream origin master
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
