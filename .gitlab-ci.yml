@@ -25,10 +25,8 @@ push_to_master:
     GIT_CHECKOUT: "false"
   before_script:
     - apk add --no-cache git
-    - git config --global user.email ${GITLAB_USER_EMAIL}
-    - git config --global user.name ${GITLAB_USER_NAME}
-    - git remote set-url origin https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
   script:
+    - git remote set-url origin https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
     - git merge origin/develop
     - git push
   rules:
