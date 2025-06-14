@@ -27,6 +27,6 @@ push_to_master:
     - apk add --no-cache git
     - git status
     - git merge origin/develop
-    - git push "https://oauth2:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}"
+    - git push https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
