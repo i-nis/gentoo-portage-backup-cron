@@ -23,10 +23,13 @@ push_to_master:
   variables:
     GIT_STRATEGY: clone
     GIT_CHECKOUT: "false"
-  script:
+  before_script:
     - apk add --no-cache git
-    - git status
+    - git config --global user.email ${GITLAB_USER_EMAIL}
+    - git config --global user.name ${GITLAB_USER_NAME}
+    - git remote set-url origin https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
+  script:
     - git merge origin/develop
-    - git push https://oauth2:${CI_ACCESS_TOKEN}@${CI_PROJECT_URL#https://}.git
+    - git push
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
