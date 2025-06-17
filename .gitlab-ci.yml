@@ -25,7 +25,7 @@ push_to_master:
   before_script:
     - apk add --no-cache git
   script:
-    - git clone ${CI_PROJECT_URL#https://}.git
+    - git clone $CI_PROJECT_URL.git
     - git remote set-url origin https://$CI_ACCESS_TOKEN:$CI_ACCESS_KEY@${CI_PROJECT_URL#https://}.git
     - git merge origin/develop
     - git push
