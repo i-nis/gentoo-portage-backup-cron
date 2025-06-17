@@ -29,7 +29,6 @@ push_to_master:
     - git remote set-url origin https://CI_ACCESS_TOKEN:$CI_ACCESS_KEY@${CI_PROJECT_URL#https://}.git
     - cat .git/config
     - git merge origin/develop
-    - ls -ls
     - git push --set-upstream origin master
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
