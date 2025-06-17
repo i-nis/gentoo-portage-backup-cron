@@ -28,6 +28,7 @@ push_to_master:
   script:
     - git remote set-url origin https://$CI_ACCESS_TOKEN:$CI_ACCESS_KEY@${CI_PROJECT_URL#https://}.git
     - git fetch --all
+    - git checkout origin/master
     - git merge origin/develop
     - git push --set-upstream origin master
   rules:
