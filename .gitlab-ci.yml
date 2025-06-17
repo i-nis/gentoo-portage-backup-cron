@@ -27,7 +27,6 @@ push_to_master:
     - apk add --no-cache git
   script:
     - git remote set-url origin https://CI_access_token:$CI_ACCESS_KEY@${CI_PROJECT_URL#https://}.git
-    - cat .git/config
     - git merge origin/develop
     - git push --set-upstream origin master
   rules:
