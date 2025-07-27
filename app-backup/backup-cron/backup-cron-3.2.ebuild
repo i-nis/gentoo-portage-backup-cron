@@ -30,6 +30,11 @@ RDEPEND="${DEPEND}
 		net-analyzer/nagios-plugins
 	) )"
 
+src_unpack() {
+	unpack ${A}
+	mv "${WORKDIR}/${PN}-v${PV}" "${WORKDIR}/${P}" || die "Install failed!"
+}
+
 src_install() {
 	dodir /etc/backup-cron
 	dodir /usr/libexec/backup-cron

@@ -15,7 +15,7 @@ RDEPEND="${DEPEND}"
 
 src_unpack() {
 	unpack ${A}
-	mv "${WORKDIR}/backup-cron-${PV}" "${WORKDIR}/${P}" || die "Install failed!"
+	mv "${WORKDIR}/backup-cron-v${PV}" "${WORKDIR}/${P}" || die "Install failed!"
 }
 
 src_install() {
