@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Backup for disk images of virtual machines managed by Libvirt."
-HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
+HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
+SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
@@ -27,8 +27,8 @@ src_install() {
 
 pkg_postinst() {
 	ewarn "See previous considerations at: "
-	ewarn "https://proyectos.nis.com.ar/projects/backup-cron/wiki/Consideraciones_previas"
+	ewarn "https://gitlab.nis.com.ar/proyectos/backup-cron/-/wikis/Consideraciones_previas"
 	einfo "This utility backs disk images of virtual machines managed by libvirt to the compressed qcow2 format."
 	einfo "The backup files have .qcow2 file extension."
-	einfo "More information about qcow2 in: https://people.gnome.org/~markmc/qcow-image-format.html"
+	einfo "More information about qcow2 in: https://wiki.qemu.org/Features/Qcow3"
 }

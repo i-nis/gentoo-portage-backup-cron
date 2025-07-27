@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Backup sync for remote storage over SSH and rsync."
-HOMEPAGE="https://proyectos.nis.com.ar/projects/backup-cron"
-SRC_URI="https://github.com/i-nis/backup-cron/archive/v${PV}.tar.gz -> backup-cron-${PV}.tar.gz"
+HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
+SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
