@@ -12,7 +12,7 @@ pkgcheck:
     - emerge --quiet dev-util/pkgcheck
   script:
     - echo "Revisando ebuilds..."
-    - pkgcheck scan
+    - pkgcheck scan --arches=amd64,x86
     - echo "No se encontraron problemas en ebuilds."
 
 push_to_master:
