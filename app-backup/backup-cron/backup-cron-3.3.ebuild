@@ -8,7 +8,7 @@ HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${PN}-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="logcheck plugins sync"
 DEPEND="
 	acct-group/admin
