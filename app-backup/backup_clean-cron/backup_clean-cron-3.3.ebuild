@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Clear utility for old backups from remote hosts."
+DESCRIPTION="Clear utility for old backups from remote hosts"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"

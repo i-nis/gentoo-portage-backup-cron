@@ -1,14 +1,14 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DESCRIPTION="Config file and utilities for backup-cron scripts."
+DESCRIPTION="Config file and utilities for backup-cron scripts"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${PN}-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="logcheck plugins sync"
 DEPEND="
 	acct-group/admin

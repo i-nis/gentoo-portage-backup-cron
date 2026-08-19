@@ -5,7 +5,7 @@ EAPI=8
 
 inherit acct-user
 
-DESCRIPTION="A user for virtual/backup-cron."
+DESCRIPTION="A user for virtual/backup-cron"
 KEYWORDS="amd64 x86"
 
 ACCT_USER_GROUPS=( "${PN}" )

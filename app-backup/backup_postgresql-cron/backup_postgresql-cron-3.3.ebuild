@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DESCRIPTION="Backup for Postgresql."
+DESCRIPTION="Backup for Postgresql"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"

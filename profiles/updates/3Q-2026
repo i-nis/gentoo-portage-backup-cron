@@ -1,0 +1,2 @@
+move app-backup/mysqldump-cron app-backup/backup_mysql-cron
+move app-backup/pg_dump-cron app-backup/backup_postgresql-cron

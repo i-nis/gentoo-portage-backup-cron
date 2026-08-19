@@ -3,15 +3,15 @@
 
 EAPI=8
 
-DESCRIPTION="Backup sync for remote storage over SSH and rsync."
+DESCRIPTION="Backup for MySQL"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
-	>=app-backup/backup-cron-3.0
-	net-misc/rsync"
+	>=app-backup/backup-cron-4.0
+	virtual/mysql"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -21,6 +21,12 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/remote_backup_sync.cron
-	dosym ../../usr/sbin/remote_backup_sync.cron /etc/cron.daily/remote_backup_sync.cron
+	dosbin "${S}"/usr/sbin/backup_mysql
+	dosbin "${S}"/usr/sbin/mysql_restore
+	dosym ../../usr/sbin/backup_mysql /etc/cron.daily/backup_mysql
+}
+
+pkg_postinst() {
+	local file="${EROOT}/etc/backup-cron/backup-cron.conf"
+	einfo "Don't forget set root password in BDB_PASSWD parameter at '${file}' script."
 }

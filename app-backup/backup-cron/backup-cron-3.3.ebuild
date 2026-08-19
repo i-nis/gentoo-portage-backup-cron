@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Config file and utilities for backup-cron scripts."
+DESCRIPTION="Config file and utilities for backup-cron scripts"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${PN}-${PV}.tar.bz2"
 LICENSE="GPL-3"

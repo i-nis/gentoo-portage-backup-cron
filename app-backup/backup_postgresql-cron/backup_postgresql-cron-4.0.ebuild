@@ -3,14 +3,14 @@
 
 EAPI=8
 
-DESCRIPTION="Backup for Postgresql."
+DESCRIPTION="Backup for Postgresql"
 HOMEPAGE="https://gitlab.nis.com.ar/proyectos/backup-cron"
 SRC_URI="https://gitlab.nis.com.ar/proyectos/backup-cron/-/archive/v${PV}/backup-cron-v${PV}.tar.bz2 -> backup-cron-${PV}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND="app-admin/tmpwatch
-	>=app-backup/backup-cron-3.0
+	>=app-backup/backup-cron-4.0
 	dev-db/postgresql:*"
 RDEPEND="${DEPEND}"
 
@@ -21,8 +21,8 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	dosbin "${S}"/usr/sbin/pg_dump.cron
-	dosym ../../usr/sbin/pg_dump.cron /etc/cron.daily/pg_dump.cron
+	dosbin "${S}"/usr/sbin/backup_postgresql
+	dosym ../../usr/sbin/backup_postgresql /etc/cron.daily/backup_postgresql
 }
 
 pkg_postinst() {

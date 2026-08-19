@@ -5,7 +5,7 @@ EAPI=8
 
 inherit acct-group
 
-DESCRIPTION="A group for virtual/backup-cron."
+DESCRIPTION="A group for virtual/backup-cron"
 KEYWORDS="amd64 x86"
 
 ACCT_GROUP_ID="-1"
