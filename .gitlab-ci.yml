@@ -30,8 +30,10 @@ push_to_master:
   script:
     - git clone $CI_PROJECT_URL.git
     - cd $CI_PROJECT_NAME
-    - git remote set-url origin https://$CI_ACCESS_TOKEN:$CI_ACCESS_KEY@${CI_PROJECT_URL#https://}.git
-    - git merge origin/develop
-    - git push
+    - git checkout $CI_DEFAULT_BRANCH
+    - git remote set-url origin https://gitlab-ci-token:$CI_JOB_TOKEN@${CI_PROJECT_URL#https://}.git
+    - git fetch origin develop
+    - git merge origin/develop --no-edit
+    - git push origin $CI_DEFAULT_BRANCH
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
