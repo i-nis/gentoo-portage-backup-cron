@@ -19,8 +19,18 @@ src_unpack() {
 
 src_install() {
 	dodir /etc/cron.daily
-	cp -pR "${S}"/etc/cron.daily/clean_* "${D}"/etc/cron.daily
-	fperms 700 /etc/cron.daily/clean_*
+	cp -pR "${S}"/etc/cron.daily/clean_backup_etc "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_etc
+	cp -pR "${S}"/etc/cron.daily/clean_backup_home "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_home
+	cp -pR "${S}"/etc/cron.daily/clean_backup_libvirt "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_libvirt
+	cp -pR "${S}"/etc/cron.daily/clean_backup_mysql "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_mysql
+	cp -pR "${S}"/etc/cron.daily/clean_backup_postgresql "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_postgresql
+	cp -pR "${S}"/etc/cron.daily/clean_backup_system "${D}"/etc/cron.daily
+	fperms 700 /etc/cron.daily/clean_backup_system
 }
 
 pkg_postinst() {
