@@ -22,7 +22,7 @@ src_install() {
 	dodir /etc/cron.daily
 	dodir /etc/cron.monthly/
 	cp -pR "${S}"/etc/cron.monthly/00_backup_raiz "${D}"/etc/cron.monthly
-	fperms 700 /etc/cron.daily/00_backup_raiz
+	fperms 700 /etc/cron.monthly/00_backup_raiz
 
 	# USE conditional blocks...
 	if use no-home ; then

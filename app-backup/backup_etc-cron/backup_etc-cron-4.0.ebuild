@@ -21,7 +21,7 @@ src_install() {
 	dodir /etc/cron.daily
 	dodir /etc/cron.monthly/
 	cp -pR "${S}"/etc/cron.monthly/00_backup_etc "${D}"/etc/cron.monthly
-	fperms 700 /etc/cron.daily/00_backup_etc
+	fperms 700 /etc/cron.monthly/00_backup_etc
 	dosbin "${S}"/usr/sbin/backup_etc
 	dosym ../../usr/sbin/backup_etc /etc/cron.daily/backup_etc
 }
