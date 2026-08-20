@@ -27,20 +27,20 @@ src_install() {
 	# USE conditional blocks...
 	if use no-home ; then
 		dosbin "${S}"/usr/sbin/backup_raiz
-		dosym ../../usr/sbin/backup_raiz /etc/cron.daily/backup_raiz
+		dosym ../../usr/sbin/backup_raiz /etc/cron.monthly/backup_raiz
 	elif use no-system ; then
 		dosbin "${S}"/usr/sbin/backup_home
 		dosym ../../usr/sbin/backup_home /etc/cron.daily/backup_home
 	elif use usr-only ; then
 		dosbin "${S}"/usr/sbin/backup_usr
-		dosym ../../usr/sbin/backup_usr /etc/cron.daily/backup_usr
+		dosym ../../usr/sbin/backup_usr /etc/cron.monthly/backup_usr
 	elif use var-only ; then
 		dosbin "${S}"/usr/sbin/backup_var
 		dosym ../../usr/sbin/backup_var /etc/cron.daily/backup_var
 	else
 		dosbin "${S}"/usr/sbin/backup_{home,raiz}
 		dosym ../../usr/sbin/backup_home /etc/cron.daily/backup_home
-		dosym ../../usr/sbin/backup_raiz /etc/cron.daily/backup_raiz
+		dosym ../../usr/sbin/backup_raiz /etc/cron.monthly/backup_raiz
 	fi
 
 }
